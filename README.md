@@ -26,4 +26,5 @@
 - I needed Docker because I am using Mysql Database to store my initial data
 - Spring Boot automatically created compose.yaml which made sure that Mysql Database was running
 - In any IDE or command line, you have to run the main Java method in BackPackApplication class
+- Run the GUI application by running http://localhost:7000/
 - I used Postman to test the REST endpoints
