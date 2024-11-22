@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>PowerReviewsBackend Code Test</title>
+    <div th:if="${error != null}" th:text="${error}"></div>
+    <table border="1">
+        <th>Item</th>
+        <th>Weight</th>
+        <tr th:each="item: ${items}">
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.weight}"></td>
+        </tr>
+    </table>
+    <form action="/fill" method="post">
+        <p>Enter a total weight of items to put in the backpack</p>
+        <p>This program will calculate the number of each item to pack in order to use the least number of items</p>
+        <label>
+            <input type="number" name="totalWeight">
+        </label>
+        <input type="submit">
+    </form>
+    <div th:if="${not #lists.isEmpty(results)}">
+        <div>Total weight of items placed in the backpack: <p th:text="${totalWeight}"></p></div>
+        <table border="1">
+            <th>Item</th>
+            <th>Count</th>
+            <tr th:each="result: ${results}">
+                <td th:text="${result.item}"></td>
+                <td th:text="${result.count}"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</head>
